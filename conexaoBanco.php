@@ -2,12 +2,14 @@
     $host = 'localhost';
     $db = 'sistemaHorarios';
     $user = 'root';
-    $password = 'dev321'
+    $password = ''
 
     $conn = new mysqli($host,$db,$user,$password);
 
-    if($conn->connect_error) {
-        die("Falha na conexão: ".$conn->connect_error);
+    try {
+        $pdo = new PDO("mysql:host=$host;dbname=$db;charset=utf8", $user, $password);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    } catch (PDOException $e) {
+        echo "Erro na conexão: " . $e->getMessage();
     }
-
 ?>
