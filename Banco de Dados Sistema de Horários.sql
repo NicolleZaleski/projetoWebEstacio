@@ -2,7 +2,7 @@ create database sistemaHorarios;
 use sistemaHorarios;
 
 create table Aulas(
-id_aula int auto_increment primary key,
+id_aula int primary key,
 curso varchar(100) not null,
 nomeAula varchar(200) not null,
 ensino enum('presencial','semipresencial') not null,
@@ -14,4 +14,3 @@ bloco varchar(20) not null,
 andar varchar(20) not null,
 sala varchar(20) not null
 );
-
