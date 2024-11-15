@@ -1,7 +1,7 @@
 <?php
 include('conexaoBanco.php');
 
-$query = $pdo->query("SELECT * FROM Aulas");
+$query = $pdo->query("SELECT * FROM aulas");
 $aulas = $query-> fetchAll();
 ?>
 
@@ -28,12 +28,13 @@ $aulas = $query-> fetchAll();
         <table>
             <tr>
                 <th>Curso</th>
+                <th>Matricula</th>
                 <th>Aula</th>
                 <th>Ensino</th>
                 <th>Professor</th>
                 <th>Dia da Semana</th>
                 <th>Período do Dia</th>
-                <th>Horário de Início/th>
+                <th>Horário de Início</th>
                 <th>Bloco</th>
                 <th>Andar</th>
                 <th>Sala</th>
@@ -43,7 +44,8 @@ $aulas = $query-> fetchAll();
             
                 <tr>
                     <td><? $aula['curso'] ?></td>
-                    <td><? $aula['nomeAula'] ?></td>
+                    <td><? $aula['matricula'] ?></td>
+                    <td><? $aula['aula'] ?></td>
                     <td><? $aula['ensino'] ?></td>
                     <td><? $aula['professor'] ?></td>
                     <td><? $aula['diaSemana'] ?></td>

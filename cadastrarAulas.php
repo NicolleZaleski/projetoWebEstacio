@@ -1,10 +1,11 @@
 <?php
     include 'conexaoBanco.php';
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
+        $matricula = $_POST['matricula'];
         $curso = $_POST['curso'];
-        $nomeAula = $_POST['nomeAula'];
+        $aula = $_POST['aula'];
         $ensino = $_POST['ensino'];
         $professor = $_POST['professor'];
         $diaSemana = $_POST['diaSemana'];
@@ -14,11 +15,12 @@
         $andar = $_POST['andar'];
         $sala = $_POST['sala'];
         
-        $query = $pdo->prepare("INSERT INTO Aulas (curso,nomeAula,ensino,professor,diaSemana,periodo,horario,bloco,andar,sala)
-                                VALUES (:curso, :nomeAula, :ensino, :professor, :diaSemana, :periodo, :horario, :bloco, :andar, :sala)");
+        $query = $pdo->prepare("INSERT INTO Aulas (matricula,curso,aula,ensino,professor,diaSemana,periodo,horario,bloco,andar,sala)
+                                VALUES (:matricula,:curso, :aula, :ensino, :professor, :diaSemana, :periodo, :horario, :bloco, :andar, :sala)");
         $query->execute([
+            'matricula' => $matricula,
             'curso' => $curso,
-            'nomeAula' => $nomeAula,
+            'aula' => $aula,
             'ensino' => $ensino,
             'professor' => $professor,
             'diaSemana' => $diaSemana,
@@ -60,14 +62,17 @@
             <label for="curso">Curso:</label>
             <input type="text" id="curso" name="curso" required><br>
 
-            <label for="nomeAula">Nome e matrícula da Aula:</label>
-            <input type="text" id="nomeAula" name="nomeAula" required><br>
-
             <label for="ensino">Modalidade de Ensino:</label>
             <select name="ensino" id="ensino" required>
                 <option value="Presencial">Presencial</option>
                 <option value="Semipresencial">Semipresencial</option>
             </select><br>
+
+            <label for="matricula">Matrícula da aula:</label>
+            <input type="number" id="matricula" name="matricula" required><br>
+
+            <label for="aula">Nome da Aula:</label>
+            <input type="text" id="aula" name="aula" required><br>
 
             <label for="professor">Professor</label>
             <input type="text" id="professor" name="professor" required><br>
