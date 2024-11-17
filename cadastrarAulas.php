@@ -44,6 +44,7 @@
     <title>Cadastrar Aula Estácio</title>
     <script src="./javascript.js"></script>
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./cadastrarAula.css">
 </head>
 
 <body>

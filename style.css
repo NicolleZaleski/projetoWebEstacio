@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap');
 
 @import "./horario.css";
-@import "./cadastrarAulas.css";
+@import "./cadastrar.css";
 
 * {
     margin: 0;
@@ -14,7 +14,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: rgb(244, 244, 249);
+    background-color: rgb(255, 255, 255);
 }
 
 .container {
@@ -25,7 +25,7 @@ body {
 }
 
 .sidebar {
-    width: 350px;
+    width: 330px;
     height: 100%;
     background-color: rgb(40,172,192);
     padding: 10px;
@@ -66,7 +66,7 @@ body {
 }
 
 footer{
-    width: 350px;
+    width: 330px;
     background-color: transparent;
     color: rgb(29,29,27);
     text-align: right;
