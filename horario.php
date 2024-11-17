@@ -18,7 +18,7 @@ include 'conexaoBanco.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quadro de Horários Estácio</title>
-    <link rel="stylesheet" href="horario.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
@@ -38,21 +38,6 @@ include 'conexaoBanco.php';
 
             <section class="pastas">
             <?php
-                
-                // $servername = "localhost";
-                // $username = "root";
-                // $password = "dev321";
-                // $dbname = "sistemaHorarios";
-
-                // // Cria a conexão com o banco de dados
-                // $conn = new mysqli($servername, $username, $password, $dbname);
-
-                // Verifica a conexão
-                // if ($conn->connect_error) {
-                //     die("Falha na conexão: " . $conn->connect_error);
-                // }
-
-                // Consulta SQL para buscar todas as aulas
                 $sql = "SELECT curso,ensino,matricula,aula,professor,horario,bloco,andar,sala FROM Aulas";
                 $result = $conn->query($sql);
 
