@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap');
 
-@import "horario.css";
-@import "cadastrarAulas.css";
+@import "./horario.css";
+@import "./cadastrarAulas.css";
 
 * {
     margin: 0;
