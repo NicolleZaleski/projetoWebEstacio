@@ -18,21 +18,21 @@ include 'conexaoBanco.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quadro de Horários Estácio</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
     <div class="container">
         <aside class="sidebar">
-        <img src="./logo.png" alt="Logo Estácio" class="logo">
+        <img src="./logoestacio.png" alt="Logo Estácio" class="logo">
             <nav class="menu">
-                <li><a href="horario.php">Quadro de Horários</a></li>
-                <li><a href="cadastrarAulas.php">Cadastrar Aula</a></li>
-                <li><a href="listarAulas.php">Listar e Editar Aulas</a></li>
-                <li><a href="about.html">Sobre Mim</a></li>
+                <li class="item-menu"><a class="link-menu" href="horario.php">Quadro de Horários</a></li>
+                <li class="item-menu"><a class="link-menu" href="cadastrarAulas.php">Cadastrar Aula</a></li>
+                <li class="item-menu"><a class="link-menu" href="listarAulas.php">Listar e Editar Aulas</a></li>
+                <li class="item-menu"><a class="link-menu" href="about.html">Sobre Mim</a></li>
             </nav>
         </aside>
         <main class="area-principal">
-            <header class="header">
+            <header class="tit">
                 <h1>Dia da semana - Período do Dia</h1>
             </header>
 
@@ -43,17 +43,19 @@ include 'conexaoBanco.php';
 
                 // Verifica se há resultados e exibe cada aula
                 if ($result->num_rows > 0) {
-                    while($row = $result->fetch_assoc()) {
-                        echo "<div class='folder'>";
-                        echo "<p><strong>Curso:</strong> " . htmlspecialchars($row["curso"]) . "</p>";
-                        echo "<p><strong>Aula:</strong> " . htmlspecialchars($row["matricula"]) . htmlspecialchars($row["aula"]) . "</p>";
-                        echo "<p><strong>Horário:</strong> " . htmlspecialchars($row["horario"]) . "</p>";
-                        echo "<p><strong>Professor:</strong> " . htmlspecialchars($row["professor"]) . "</p>";
-                        echo "<p><strong>Local:</strong> " . htmlspecialchars($row["andar"]) .  htmlspecialchars($row["sala"]) ."</p>";
+                    while($row = $result->fetch_assoc()) { 
+                        echo "<div class='aulas'>";
+                        echo "<p class='curso'><strong></strong> " . htmlspecialchars($row["curso"]) . "</p>";
+                        echo "<p class='aula'><strong>Aula:</strong> " . htmlspecialchars($row["matricula"]) . " " . htmlspecialchars($row["aula"]) . "</p>";
+                        echo "<p class='professor'><strong>Professor:</strong> " . htmlspecialchars($row["professor"]) . "</p>";
+                        echo "<p class='horario'><strong>Horário:</strong> " . htmlspecialchars($row["horario"]) . "</p>";
+                        echo "<p class='local'><strong>Local:</strong> " . htmlspecialchars($row["andar"]) . " andar, sala " . htmlspecialchars($row["sala"]) ."</p>";
                         echo "</div>";
                     }
                 } else {
+                    echo "<div class='semaula'>";
                     echo "<p>Nenhuma aula cadastrada.</p>";
+                    echo "</div>";
                 }
 
                 // Fecha a conexão
