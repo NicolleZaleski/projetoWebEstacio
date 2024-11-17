@@ -1,9 +1,4 @@
 <?php
-    // $host = 'localhost';
-    // $dbname = 'sistemaHorarios';
-    // $user = 'root';
-    // $password = 'dev321'
-
     $servername = "localhost";
     $username = "root";
     $password = "dev321";
