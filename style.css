@@ -27,7 +27,7 @@ body {
     width: 350px;
     height: 100%;
     background-color: rgb(40,172,192);
-    padding: 20px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -62,4 +62,20 @@ body {
 
 .link-menu:hover {
     color: rgb(192,225,215);
+}
+
+footer{
+    width: 350px;
+    background-color: transparent;
+    color: rgb(29,29,27);
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+footer a{
+    font-size: 15px;
 }

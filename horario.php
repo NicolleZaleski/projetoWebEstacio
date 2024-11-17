@@ -28,8 +28,9 @@ include 'conexaoBanco.php';
                 <li class="item-menu"><a class="link-menu" href="horario.php">Quadro de Horários</a></li>
                 <li class="item-menu"><a class="link-menu" href="cadastrarAulas.php">Cadastrar Aula</a></li>
                 <li class="item-menu"><a class="link-menu" href="listarAulas.php">Listar e Editar Aulas</a></li>
-                <li class="item-menu"><a class="link-menu" href="about.html">Sobre Mim</a></li>
+                <li class="item-menu"></li>
             </nav>
+            <footer><a class="link-menu" href="about.html">Sobre Mim</a></footer>
         </aside>
         <main class="area-principal">
             <header class="titulo">
