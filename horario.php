@@ -32,7 +32,7 @@ include 'conexaoBanco.php';
             </nav>
         </aside>
         <main class="area-principal">
-            <header class="tit">
+            <header class="titulo">
                 <h1>Dia da semana - Período do Dia</h1>
             </header>
 
@@ -46,9 +46,9 @@ include 'conexaoBanco.php';
                     while($row = $result->fetch_assoc()) { 
                         echo "<div class='aulas'>";
                         echo "<p class='curso'><strong></strong> " . htmlspecialchars($row["curso"]) . "</p>";
-                        echo "<p class='aula'><strong>Aula:</strong> " . htmlspecialchars($row["matricula"]) . " " . htmlspecialchars($row["aula"]) . "</p>";
-                        echo "<p class='professor'><strong>Professor:</strong> " . htmlspecialchars($row["professor"]) . "</p>";
-                        echo "<p class='horario'><strong>Horário:</strong> " . htmlspecialchars($row["horario"]) . "</p>";
+                        echo "<p class='aula'><strong>" . htmlspecialchars($row["matricula"]) . "</strong> " . htmlspecialchars($row["aula"]) . "</p>";
+                        echo "<p class='professor'><strong>Docente:</strong> " . htmlspecialchars($row["professor"]) . "</p>";
+                        echo "<p class='horario'><strong>Horário de Início:</strong> " . htmlspecialchars($row["horario"]) . "</p>";
                         echo "<p class='local'><strong>Local:</strong> " . htmlspecialchars($row["andar"]) . " andar, sala " . htmlspecialchars($row["sala"]) ."</p>";
                         echo "</div>";
                     }
