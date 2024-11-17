@@ -43,16 +43,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Aula Estácio</title>
     <script src="./javascript.js"></script>
-    <link rel="stylesheet" href="./cadastrarAulas.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
-    <div class="menu-lateral">
-        <img src="./logo.png" alt="Logo Estácio" class="logo">
-        <a href="horario.php">Quadro de Horários</a>
-        <a href="cadastrarAulas.php">Cadastrar Aula</a>
-        <a href="listarAulas.php">Listar e Editar Aulas</a>
-        <a href="about.html">Sobre Mim</a>
+    <div class="container">
+        <aside class="sidebar">
+        <img src="./logoestacio.png" alt="Logo Estácio" class="logo">
+            <nav class="menu">
+                <li class="item-menu"><a class="link-menu" href="horario.php">Quadro de Horários</a></li>
+                <li class="item-menu"><a class="link-menu" href="cadastrarAulas.php">Cadastrar Aula</a></li>
+                <li class="item-menu"><a class="link-menu" href="listarAulas.php">Listar e Editar Aulas</a></li>
+                <li class="item-menu"><a class="link-menu" href="about.html">Sobre Mim</a></li>
+            </nav>
+        </aside>
     </div>
 
     <div class="conteudo">
