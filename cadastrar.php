@@ -44,7 +44,7 @@
     <title>Cadastrar Aula Estácio</title>
     <script src="./javascript.js"></script>
     <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="./cadastrarAula.css">
+    <link rel="stylesheet" href="./cadastrar.css">
 </head>
 
 <body>
@@ -53,7 +53,7 @@
         <img src="./logoestacio.png" alt="Logo Estácio" class="logo">
             <nav class="menu">
                 <li class="item-menu"><a class="link-menu" href="horario.php">Quadro de Horários</a></li>
-                <li class="item-menu"><a class="link-menu" href="cadastrarAulas.php">Cadastrar Aula</a></li>
+                <li class="item-menu"><a class="link-menu" href="cadastrar.php">Cadastrar Aula</a></li>
                 <li class="item-menu"><a class="link-menu" href="listarAulas.php">Listar e Editar Aulas</a></li>
                 <li class="item-menu"></li>
             </nav>
@@ -61,7 +61,7 @@
         <footer><a href="about.html">Sobre Mim</a></footer>
     </div>
 
-    <div class="conteudo">
+    <div class="area">
         <h2 class="titulo-pag">Cadastrar Aula</h2>
         <form method="post">
             <label for="curso">Curso:</label>

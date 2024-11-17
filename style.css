@@ -13,7 +13,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    /* height: 100vh; */
     background-color: rgb(255, 255, 255);
 }
 
@@ -25,7 +25,7 @@ body {
 }
 
 .sidebar {
-    width: 330px;
+    width: 350px;
     height: 100%;
     background-color: rgb(40,172,192);
     padding: 10px;
@@ -66,7 +66,7 @@ body {
 }
 
 footer{
-    width: 330px;
+    width: 350px;
     background-color: transparent;
     color: rgb(29,29,27);
     text-align: right;
