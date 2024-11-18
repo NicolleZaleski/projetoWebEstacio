@@ -28,7 +28,7 @@
         <footer><a href="about.html">Sobre Mim</a></footer>
     </div>
 
-    <div class="area">
+    <div class="conteudo">
         <h2 class="titulo-pag">Cadastrar Aula</h2>
         <form method="post">
             <label for="curso">Curso:</label>
@@ -78,7 +78,7 @@
             <label for="sala">Sala:</label>
             <input type="text" id="sala" name="sala" required><br>
 
-            <button type="submit">Cadastrar Aula</button>
+            <button type="submit" class="cadastrar">Cadastrar Aula</button>
         </form>
     </div>
     <div class="mensagemErro">
