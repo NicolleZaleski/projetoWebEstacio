@@ -1,3 +1,8 @@
+<?php
+include "conexaoBanco.php";
+$status = ""; 
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -5,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Aula Estácio</title>
     <script src="./javascript"></script>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./estilo.css">
     <link rel="stylesheet" href="./cad.css">
 </head>
 <body>
@@ -14,9 +19,8 @@
             <img src="./logoestacio.png" alt="Logo Estácio" class="logo">
             <nav class="menu">
                 <li class="item-menu"><a href="horario.php" class="link-menu">Quadro de Horários</a></li>
-                <li class="item-menu"><a href="cadastrar.php" class="link-menu">Cadastrar Aula</a></li>
+                <li class="item-menu"><a href="cad.php" class="link-menu">Cadastrar Aula</a></li>
                 <li class="item-menu"><a href="listarAulas.php" class="link-menu">Listar e Editar Aulas</a></li>
-                <li class="item-menu"><a href="cad2.php" class="link-menu">cad2</a></li>
             </nav>
         </aside>
         <footer><a href="about.html">Sobre Mim</a></footer>
@@ -77,8 +81,51 @@
             </form>
         </div>
     </div>
-    
-    <!-- <script src="javascript.js"></script> -->
+
+    <?php
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            $matricula = $_POST['matricula'];
+            $curso = $_POST['curso'];
+            $aula = $_POST['aula'];
+            $ensino = $_POST['ensino'];
+            $professor = $_POST['professor'];
+            $diaSemana = $_POST['diaSemana'];
+            $periodo = $_POST['periodo'];
+            $horario = $_POST['horario'];
+            $bloco = $_POST['bloco'];
+            $andar = $_POST['andar'];
+            $sala = $_POST['sala'];
+            $query = $pdo->prepare("INSERT INTO Aulas (matricula,curso,aula,ensino,professor,diaSemana,periodo,horario,bloco,andar,sala)
+                                        VALUES (:matricula,:curso, :aula, :ensino, :professor, :diaSemana, :periodo, :horario, :bloco, :andar, :sala)");
+            if ($query->execute([
+                'matricula' => $matricula,
+                'curso' => $curso,
+                'aula' => $aula,
+                'ensino' => $ensino,
+                'professor' => $professor,
+                'diaSemana' => $diaSemana,
+                'periodo' => $periodo,
+                'horario' => $horario,
+                'bloco' => $bloco,
+                'andar' => $andar,
+                'sala' => $sala
+            ])) {
+                $status = "success";
+            } else {
+                $status = "error";
+            }
+        }
+    ?>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        const statusCadastro = "<?php echo $status; ?>";
+        if (statusCadastro === "success") {
+            alert("Aula cadastrada com sucesso!");
+        } else if (statusCadastro === "error") {
+            alert("Falha ao cadastrar a aula. Tente novamente.");
+        }
+    </script>
     
 </body>
 </html>

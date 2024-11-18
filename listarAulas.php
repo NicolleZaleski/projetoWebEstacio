@@ -20,9 +20,8 @@ $aulas = $query-> fetchAll();
         <img src="./logoestacio.png" alt="Logo Estácio" class="logo">
             <nav class="menu">
                 <li class="item-menu"><a class="link-menu" href="horario.php">Quadro de Horários</a></li>
-                <li class="item-menu"><a class="link-menu" href="cadastrar.php">Cadastrar Aula</a></li>
+                <li class="item-menu"><a class="link-menu" href="cad.php">Cadastrar Aula</a></li>
                 <li class="item-menu"><a class="link-menu" href="listarAulas.php">Listar e Editar Aulas</a></li>
-                <li class="item-menu"></li>
             </nav>
         </aside>
         <footer><a href="about.html">Sobre Mim</a></footer>

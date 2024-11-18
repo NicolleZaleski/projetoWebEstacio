@@ -18,7 +18,7 @@ include 'conexaoBanco.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quadro de Horários Estácio</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="estilo.css">
     <link rel="stylesheet" href="horario.css">
 </head>
 <body>
@@ -27,9 +27,8 @@ include 'conexaoBanco.php';
         <img src="./logoestacio.png" alt="Logo Estácio" class="logo">
             <nav class="menu">
                 <li class="item-menu"><a class="link-menu" href="horario.php">Quadro de Horários</a></li>
-                <li class="item-menu"><a class="link-menu" href="cadastrar.php">Cadastrar Aula</a></li>
+                <li class="item-menu"><a class="link-menu" href="cad.php">Cadastrar Aula</a></li>
                 <li class="item-menu"><a class="link-menu" href="listarAulas.php">Listar e Editar Aulas</a></li>
-                <li class="item-menu"><a class="link-menu" href="./cad2.php">cad2</a></li>
             </nav>
         </aside>
         <footer><a href="about.html">Sobre Mim</a></footer>
