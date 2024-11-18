@@ -84,39 +84,50 @@ $status = "";
 
     <?php
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-            $matricula = $_POST['matricula'];
-            $curso = $_POST['curso'];
-            $aula = $_POST['aula'];
-            $ensino = $_POST['ensino'];
-            $professor = $_POST['professor'];
-            $diaSemana = $_POST['diaSemana'];
-            $periodo = $_POST['periodo'];
-            $horario = $_POST['horario'];
-            $bloco = $_POST['bloco'];
-            $andar = $_POST['andar'];
-            $sala = $_POST['sala'];
-            $query = $pdo->prepare("INSERT INTO Aulas (matricula,curso,aula,ensino,professor,diaSemana,periodo,horario,bloco,andar,sala)
-                                        VALUES (:matricula,:curso, :aula, :ensino, :professor, :diaSemana, :periodo, :horario, :bloco, :andar, :sala)");
-            if ($query->execute([
-                'matricula' => $matricula,
-                'curso' => $curso,
-                'aula' => $aula,
-                'ensino' => $ensino,
-                'professor' => $professor,
-                'diaSemana' => $diaSemana,
-                'periodo' => $periodo,
-                'horario' => $horario,
-                'bloco' => $bloco,
-                'andar' => $andar,
-                'sala' => $sala
-            ])) {
+            try{
+                $matricula = $_POST['matricula'];
+                $curso = $_POST['curso'];
+                $aula = $_POST['aula'];
+                $ensino = $_POST['ensino'];
+                $professor = $_POST['professor'];
+                $diaSemana = $_POST['diaSemana'];
+                $periodo = $_POST['periodo'];
+                $horario = $_POST['horario'];
+                $bloco = $_POST['bloco'];
+                $andar = $_POST['andar'];
+                $sala = $_POST['sala'];
+                $query = $pdo->prepare("INSERT INTO Aulas (matricula,curso,aula,ensino,professor,diaSemana,periodo,horario,bloco,andar,sala)
+                                            VALUES (:matricula,:curso, :aula, :ensino, :professor, :diaSemana, :periodo, :horario, :bloco, :andar, :sala)");
+                $query->execute([
+                    'matricula' => $matricula,
+                    'curso' => $curso,
+                    'aula' => $aula,
+                    'ensino' => $ensino,
+                    'professor' => $professor,
+                    'diaSemana' => $diaSemana,
+                    'periodo' => $periodo,
+                    'horario' => $horario,
+                    'bloco' => $bloco,
+                    'andar' => $andar,
+                    'sala' => $sala
+                ]);
                 $status = "success";
-            } else {
+            } catch (PDOException $e) {
                 $status = "error";
+                $errorMessage = $e->getMEssage();
             }
         }
     ?>
+
+    <?php if (isset($errorMessage)) : ?>
+        <script>
+            console.error("Erro ao cadastrar aula: <?php echo $errorMessage; ?>");
+        </script>
+    <?php endif; ?>
+
+
+
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         const statusCadastro = "<?php echo $status; ?>";
