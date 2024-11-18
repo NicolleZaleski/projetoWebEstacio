@@ -1,4 +1,6 @@
-* {
+@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap');
+
+/* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -6,10 +8,8 @@
 
 body {
     /* display: flex; */
-    justify-content: center;
+    /* justify-content: center;
     align-items: center;
-    /* height: 100vh;*/
-    justify-content: space-between;
     background-color: rgb(192,225,215);
 }
 
@@ -74,7 +74,7 @@ footer{
 }
 
 footer a{
-    font-size: 16px;
+    font-size: 15px;
     font-family: "Merienda";
     color: rgb(29,29,27);
     text-decoration: none;
@@ -82,27 +82,35 @@ footer a{
 
 footer a:hover {
     font-weight: 600;
+} */ 
+
+.area{
+    margin-left: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 .conteudo{
     background-color: rgb(122,198,192);
     padding: 20px 30px;
     border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    width: 70vw;
-    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.39);
+    /* width: 70vw; */
+    /* max-width: 700px; */
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    margin: 0 0 0 600px;
-    position: relative;
+    justify-content: flex-start;
+    /* margin: 0 0 0 350px; */
+    margin: 50px 200px;
+    /* position: relative; */
 } 
 
-.titulo-pag {
+h2 {
     text-align: center;
     margin: 30px 0 40px 0;
-    font-size: 20px;
+    font-size: 30px;
     font-weight: bold;
     font-family: "Merienda";
 }
@@ -112,10 +120,11 @@ label{
     font-size: 18px;
     font-weight: bold;
     margin-top: 10px;
+    font-family: "Merienda";
 }
 
-input{
-    width: 50vh;
+select, input{
+    width: 70vh;
     padding: 10px;
     margin-top: 5px;
     border: 2px solid #000000;
@@ -127,30 +136,32 @@ input{
     font-size: 18px;
 }
 
-input::placeholder{
-    color: #000000;
+/* input::placeholder{
+    color: #ffffff;
     font-size: 18px;
  
-}
+} */
 
-.formulario button{
+.cadastrar{
+    margin-bottom: 30px;
     padding: 8px 12px;
     background-color: #000000;
     color: rgb(192,225,215);
+    border-radius: 12px;
     border: 2px solid black;
     cursor: pointer;
     font-size: 15px;
     display: flex;    
 }
 
-.formulario button:hover{
+.cadastrar:hover{
     border: 2px solid black;
     background-color: rgba(0, 0, 0, 0.185);
 }
 
-.erro{
+/* .erro{
     color: red;
     font-size: 14px;
     text-align: center;
     margin-top: 10px;
-}
+} */
