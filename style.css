@@ -34,7 +34,7 @@ body {
     align-items: center;
     float: left;
     gap: 65px;
-    position: fixed;
+    /* position: fixed; */
 }
 
 .logo {

@@ -1,37 +1,31 @@
-<?php
-    include 'conexaoBanco.php';
-    $sucesso = false;
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Aula Estácio</title>
-    <script src="./javascript.js"></script>
+    <script src="./javascript"></script>
     <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="./cadastrar.css">
+    <link rel="stylesheet" href="./cad2.css">
 </head>
-
 <body>
     <div class="container">
-    <aside class="sidebar">
-        <img src="./logoestacio.png" alt="Logo Estácio" class="logo">
+        <aside class="sidebar">
+            <img src="./logoestacio.png" alt="Logo Estácio" class="logo">
             <nav class="menu">
-                <li class="item-menu"><a class="link-menu" href="horario.php">Quadro de Horários</a></li>
-                <li class="item-menu"><a class="link-menu" href="cadastrar.php">Cadastrar Aula</a></li>
-                <li class="item-menu"><a class="link-menu" href="listarAulas.php">Listar e Editar Aulas</a></li>
-                <li class="item-menu"></li>
+                <li class="item-menu"><a href="horario.php" class="link-menu">Quadro de Horários</a></li>
+                <li class="item-menu"><a href="cadastrar.php" class="link-menu">Cadastrar Aula</a></li>
+                <li class="item-menu"><a href="listarAulas.php" class="link-menu">Listar e Editar Aulas</a></li>
+                <li class="item-menu"><a href="cad2.php" class="link-menu">cad2</a></li>
             </nav>
         </aside>
         <footer><a href="about.html">Sobre Mim</a></footer>
     </div>
 
-    <div class="area">
+    <div class="conteudo">
         <h2 class="titulo-pag">Cadastrar Aula</h2>
         <form method="post">
-            <label for="curso">Curso:</label>
+        <label for="curso">Curso:</label>
             <input type="text" id="curso" name="curso" required><br>
 
             <label for="ensino">Modalidade de Ensino:</label>
@@ -81,49 +75,8 @@
             <button type="submit" class="cadastrar">Cadastrar Aula</button>
         </form>
     </div>
-    <div class="mensagemErro">
-       
-    </div>
-
-    <?php
-     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-        $matricula = $_POST['matricula'];
-        $curso = $_POST['curso'];
-        $aula = $_POST['aula'];
-        $ensino = $_POST['ensino'];
-        $professor = $_POST['professor'];
-        $diaSemana = $_POST['diaSemana'];
-        $periodo = $_POST['periodo'];
-        $horario = $_POST['horario'];
-        $bloco = $_POST['bloco'];
-        $andar = $_POST['andar'];
-        $sala = $_POST['sala'];
-        $query = $pdo->prepare("INSERT INTO Aulas (matricula,curso,aula,ensino,professor,diaSemana,periodo,horario,bloco,andar,sala)
-                                    VALUES (:matricula,:curso, :aula, :ensino, :professor, :diaSemana, :periodo, :horario, :bloco, :andar, :sala)");
-        if ($query->execute([
-            'matricula' => $matricula,
-            'curso' => $curso,
-            'aula' => $aula,
-            'ensino' => $ensino,
-            'professor' => $professor,
-            'diaSemana' => $diaSemana,
-            'periodo' => $periodo,
-            'horario' => $horario,
-            'bloco' => $bloco,
-            'andar' => $andar,
-            'sala' => $sala
-        ])); {
-            $sucesso = true;
-        }
-     }
-    ?>
-
-    <script>
-        <?php if ($sucesso): ?>
-            alert('Aula cadastrada com sucesso!');
-        <?php endif; ?>
-    </script>
+    
+    <!-- <script src="javascript.js"></script> -->
     
 </body>
 </html>

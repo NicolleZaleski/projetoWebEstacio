@@ -29,7 +29,7 @@ include 'conexaoBanco.php';
                 <li class="item-menu"><a class="link-menu" href="horario.php">Quadro de Horários</a></li>
                 <li class="item-menu"><a class="link-menu" href="cadastrar.php">Cadastrar Aula</a></li>
                 <li class="item-menu"><a class="link-menu" href="listarAulas.php">Listar e Editar Aulas</a></li>
-                <li class="item-menu"></li>
+                <li class="item-menu"><a class="link-menu" href="./cad2.php">cad2</a></li>
             </nav>
         </aside>
         <footer><a href="about.html">Sobre Mim</a></footer>

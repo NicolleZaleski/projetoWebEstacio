@@ -15,7 +15,7 @@ body{
     background-color: rgb(192,225,215);
 }
 
-.conteudo{
+.area{
     background-color: rgb(122,198,192);
     padding: 20px 30px;
     border-radius: 12px;
@@ -30,7 +30,7 @@ body{
     position: relative;
 } 
 
-.titulo-pag {
+.area .titulo-pag {
     text-align: center;
     margin: 30px 0 40px 0;
     font-size: 20px;
