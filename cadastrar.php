@@ -1,5 +1,6 @@
 <?php
     include 'conexaoBanco.php';
+    $sucesso = false;
 ?>
 
 <!DOCTYPE html>
@@ -80,6 +81,9 @@
             <button type="submit">Cadastrar Aula</button>
         </form>
     </div>
+    <div class="mensagemErro">
+       
+    </div>
 
     <?php
      if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -95,10 +99,9 @@
         $bloco = $_POST['bloco'];
         $andar = $_POST['andar'];
         $sala = $_POST['sala'];
-        
         $query = $pdo->prepare("INSERT INTO Aulas (matricula,curso,aula,ensino,professor,diaSemana,periodo,horario,bloco,andar,sala)
-                                VALUES (:matricula,:curso, :aula, :ensino, :professor, :diaSemana, :periodo, :horario, :bloco, :andar, :sala)");
-        $query->execute([
+                                    VALUES (:matricula,:curso, :aula, :ensino, :professor, :diaSemana, :periodo, :horario, :bloco, :andar, :sala)");
+        if ($query->execute([
             'matricula' => $matricula,
             'curso' => $curso,
             'aula' => $aula,
@@ -110,13 +113,17 @@
             'bloco' => $bloco,
             'andar' => $andar,
             'sala' => $sala
-        ]);
-
-        echo "<div class='resultado'>";
-        echo"Aula cadastrada com sucesso!!";
-        echo "</div>";
-    }
+        ])); {
+            $sucesso = true;
+        }
+     }
     ?>
+
+    <script>
+        <?php if ($sucesso): ?>
+            alert('Aula cadastrada com sucesso!');
+        <?php endif; ?>
+    </script>
     
 </body>
 </html>
