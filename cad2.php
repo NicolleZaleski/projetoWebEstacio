@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Aula Estácio</title>
     <script src="./javascript"></script>
-    <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="./cad2.css">
+    <!-- <link rel="stylesheet" href="./estilo.css"> -->
+    <link rel="stylesheet" href="./cad.css">
 </head>
 <body>
     <div class="container">
