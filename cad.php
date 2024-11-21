@@ -119,11 +119,11 @@ $status = "";
         }
     ?>
 
-    <?php if (isset($errorMessage)) : ?>
+    <!-- <?php if (isset($errorMessage)) : ?>
         <script>
             console.error("Erro ao cadastrar aula: <?php echo $errorMessage; ?>");
         </script>
-    <?php endif; ?>
+    <?php endif; ?> -->
 
 
 

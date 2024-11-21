@@ -1,0 +1,75 @@
+.area {
+    margin-left: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.conteudo {
+    background-color: rgb(122,198,192);
+    padding: 20px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.39);
+    margin: 50px 20px;
+}
+
+.titulo-pag {
+    text-align: center;
+    font-family: "Merienda";
+    margin-bottom: 20px;
+    font-size: 30px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: rgb(40, 172, 192);
+    color: white;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.message {
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.success {
+    color: green;
+    background-color: #e5ffe5;
+}
+
+.error {
+    color: red;
+    background-color: #ffe5e5;
+}
+
+.btn {
+    padding: 8px 12px;
+    border: 1px solid black;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.editar {
+    background-color: rgb(40,172,192);
+    color: black;
+}
+
+.excluir {
+    background-color: rgb(240, 0, 0);
+    color: white;
+}

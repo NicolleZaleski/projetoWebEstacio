@@ -1,16 +1,32 @@
 <?php
 include 'conexaoBanco.php';
 
-//$diaSemana = date('l');
-//$horaAtual = date('H');
-//$periodoAtual = ($horaAtual < 12)? 'Matutino' :
-//                ($horaAtual < 18)? 'Vespertino' :
-//                                   'Noturno';
+setlocale(LC_TIME, 'pt_BR.utf8', 'Portuguese_Brazil.1252');
+date_default_timezone_set('America/Sao_Paulo');
 
-//$query = $pdo->prepare("SELECT * FROM Aulas WHERE diaSemana = :diaSemana AND periodo = :periodo");
-//$query->execute(['diaSemana' => $diaSemana, 'periodo' => $periodoAtual]);
-//$aulas = $query ->fetchAll();
-?> 
+// Obtém o dia da semana em português usando IntlDateFormatter
+$date = new DateTime();
+$formatter = new IntlDateFormatter(
+    'pt_BR',
+    IntlDateFormatter::FULL,
+    IntlDateFormatter::NONE,
+    'America/Sao_Paulo',
+    IntlDateFormatter::GREGORIAN,
+    'EEEE' // Formato para o dia da semana por extenso
+);
+$diaSemana = ucfirst($formatter->format($date)); // Capitaliza o primeiro caractere
+
+$horaAtual = (int)$date->format('H');
+$periodo = '';
+
+if ($horaAtual >= 6 && $horaAtual < 12) {
+    $periodo = 'Matutino';
+} elseif ($horaAtual >= 12 && $horaAtual < 18) {
+    $periodo = 'Vespertino';
+} else {
+    $periodo = 'Noturno';
+}
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -34,13 +50,18 @@ include 'conexaoBanco.php';
         <footer><a href="about.html">Sobre Mim</a></footer>
         <main class="area-principal">
             <header class="titulo">
-                <h1>Dia da semana - Período do Dia</h1>
+            <h1><?php echo $diaSemana . " - " . $periodo; ?></h1>
             </header>
 
             <section class="pastas">
             <?php
-                $sql = "SELECT curso,ensino,matricula,aula,professor,horario,bloco,andar,sala FROM Aulas";
-                $result = $conn->query($sql);
+                $sql = "SELECT curso, ensino, matricula, aula, professor, horario, bloco, andar, sala 
+                        FROM Aulas 
+                        WHERE diaSemana = ? AND periodo = ?";
+                $stmt = $conn->prepare($sql);
+                $stmt->bind_param("ss", $diaSemana, $periodo); // Dois parâmetros do tipo string
+                $stmt->execute();
+                $result = $stmt->get_result();
 
                 // Verifica se há resultados e exibe cada aula
                 if ($result->num_rows > 0) {
@@ -67,21 +88,6 @@ include 'conexaoBanco.php';
         
     </div>
 
-    <!-- <div class="conteudo">
-        <h2>Quadro de Horários - <?php echo $diaSemana . " - " . $periodoAtual; ?></h2>
-        <div class="horarios">
-            <?php foreach ($aulas as $aula): ?>
-                <div class="aula">
-                    <p><strong>Curso:</strong> <?= $aula['curso']?>,<?$aula['ensino'] ?></p>
-                    <p><strong>Aula:</strong><? $aula['matricula'] ,$aula['nomeAula'] ?></p>
-                    <p><strong>Professor:</strong><?$aula['professor'] ?></p>
-                    <p><strong>Local:</strong><? $aula['sala']?>,<? $aula['andar']?>,<? $aula['bloco']?></p>
-                    <p><strong>Início:</strong><? $aula['horario']?></p>
-                </div>
-            <?php endforeach;?>
-              
-        </div>
-    </div>
-     -->
+
 </body>
 </html>

@@ -1,8 +1,17 @@
 <?php
-include('conexaoBanco.php');
+include "conexaoBanco.php";
 
-$query = $pdo->query("SELECT * FROM aulas");
-$aulas = $query-> fetchAll();
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete'])) {
+    $id = $_POST['id'];
+
+    try {
+        $query = $pdo->prepare("DELETE FROM Aulas WHERE id = :id");
+        $query->execute(['id' => $id]);
+        $message = "Aula excluída com sucesso!";
+    } catch (PDOException $e) {
+        $error = "Erro ao excluir aula: " . $e->getMessage();
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +20,8 @@ $aulas = $query-> fetchAll();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Aulas Cadastradas</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="listarAulas.css">
 </head>
 
 <body>
@@ -26,43 +36,66 @@ $aulas = $query-> fetchAll();
         </aside>
         <footer><a href="about.html">Sobre Mim</a></footer>
     </div>
+    <div class="area">
+        <div class="conteudo">
+            <h2 class="titulo-pag">Aulas Cadastradas</h2>
+            <?php if (isset($message)): ?>
+                <p class="message success"><?php echo $message; ?></p>
+            <?php elseif (isset($error)): ?>
+                <p class="message error"><?php echo $error; ?></p>
+            <?php endif; ?>
 
-    <div class="conteudo">
-        <h2>Aulas Cadastradas</h2>
-        <table>
-            <tr>
-                <th>Curso</th>
-                <th>Matricula</th>
-                <th>Aula</th>
-                <th>Ensino</th>
-                <th>Professor</th>
-                <th>Dia da Semana</th>
-                <th>Período do Dia</th>
-                <th>Horário de Início</th>
-                <th>Bloco</th>
-                <th>Andar</th>
-                <th>Sala</th>
-                <th>Editar</th>
-            </tr>
-            <?php foreach ($aulas as $aula): ?>
-            
-                <tr>
-                    <td><? $aula['curso'] ?></td>
-                    <td><? $aula['matricula'] ?></td>
-                    <td><? $aula['aula'] ?></td>
-                    <td><? $aula['ensino'] ?></td>
-                    <td><? $aula['professor'] ?></td>
-                    <td><? $aula['diaSemana'] ?></td>
-                    <td><? $aula['periodo'] ?></td>
-                    <td><? $aula['horario'] ?></td>
-                    <td><? $aula['bloco'] ?></td>
-                    <td><? $aula['andar'] ?></td>
-                    <td><? $aula['sala'] ?></td>
-                    <td><a href="editar.php?id=<?= $aula['id']?>">Editar</a></td>
-                </tr>
-            <?php endforeach; ?>
-        </table>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Curso</th>
+                        <th>Modalidades</th>
+                        <th>Matrícula</th>
+                        <th>Aula</th>
+                        <th>Professor</th>
+                        <th>Dia</th>
+                        <th>Período</th>
+                        <th>Horário</th>
+                        <th>Local</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php
+                    $sql = "SELECT * FROM Aulas";
+                    $result = $conn->query($sql);
 
-   </div>
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<tr>";
+                            echo "<td>" . htmlspecialchars($row['curso']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['ensino']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['matricula']) . "</td>";    
+                            echo "<td>" . htmlspecialchars($row['aula']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['professor']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['diaSemana']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['periodo']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['horario']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['bloco']) . " - " . htmlspecialchars($row['andar']) . " andar, sala " . htmlspecialchars($row['sala']) . "</td>";
+                            echo "<td>
+                                <form method='post' action='editarAula.php' style='display: inline;'>
+                                    <input type='hidden' name='id' value='" . htmlspecialchars($row['id']) . "'>
+                                    <button type='submit' class='btn editar'>Editar</button>
+                                </form>
+                                <form method='post' style='display: inline;'>
+                                    <input type='hidden' name='id' value='" . htmlspecialchars($row['id']) . "'>
+                                    <button type='submit' name='delete' class='btn excluir'>Excluir</button>
+                                </form>
+                            </td>";
+                            echo "</tr>";
+                        }
+                    } else {
+                        echo "<tr><td colspan='9'>Nenhuma aula cadastrada.</td></tr>";
+                    }
+                ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </body>
 </html>

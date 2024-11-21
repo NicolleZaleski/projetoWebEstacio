@@ -1,14 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap');
 
 
-.area{
+.area {
     margin-left: 350px;
+    padding: 40px;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: rgb(192,225,215);
 }
 
-.conteudo{
+.conteudo {
     background-color: rgb(122,198,192);
     padding: 20px 30px;
     border-radius: 12px;
@@ -18,17 +20,22 @@
     align-items: center;
     justify-content: flex-start;
     margin: 50px 200px;
-} 
+}
 
-h2 {
+.titulo-pag {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: rgb(29,29,27);
     text-align: center;
-    margin: 30px 0 40px 0;
-    font-size: 30px;
-    font-weight: bold;
     font-family: "Merienda";
 }
 
-label{
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
     display: block;
     font-size: 18px;
     font-weight: bold;
@@ -36,7 +43,8 @@ label{
     font-family: "Merienda";
 }
 
-select, input{
+form input,
+form select {
     width: 70vh;
     padding: 10px;
     margin-top: 5px;
@@ -49,10 +57,9 @@ select, input{
     font-size: 18px;
 }
 
-
-.cadastrar{
+form .btn {
     margin-bottom: 30px;
-    padding: 8px 12px;
+    padding: 8px 12px 8px 12px;
     background-color: #000000;
     color: rgb(192,225,215);
     border-radius: 12px;
@@ -60,9 +67,56 @@ select, input{
     cursor: pointer;
     font-size: 15px;
     display: flex;    
+    text-align: center;
 }
 
-.cadastrar:hover{
+form .btn:hover {
     border: 2px solid black;
     background-color: rgba(0, 0, 0, 0.185);
+}
+
+.message {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        box-shadow: none;
+        text-align: center;
+    }
+
+    .sidebar .menu .link-menu {
+        display: inline-block;
+        margin: 0 5px;
+    }
+
+    .area {
+        padding: 20px;
+    }
+
+    .conteudo {
+        padding: 15px;
+    }
 }
