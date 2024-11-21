@@ -1,0 +1,60 @@
+.area-principal {
+    flex: 1;
+    padding: 20px;
+    margin-left: 350px;
+}
+
+.titulo {
+    text-align: center;
+    margin: 30px 0 40px 0;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: "Merienda";
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+    height: 100%;
+    align-content: center;
+}
+
+.info{
+    background-color: rgb(122,198,192);
+    padding: 20px 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.39);
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    margin: 100px 150px 0 200px;
+}
+
+.eeeeeeu{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    align-content: center;
+}
+
+.eu{
+    width: 190px;
+    align-items: center;
+    border-radius: 12px;
+}
+
+.descricao{
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: justify;
+    padding-right: 30px;
+    height: 100%;
+    align-items: center;
+}
+
+#botao{
+    padding-top: 10px;
+    color: black;
+    text-decoration: none;
+}
