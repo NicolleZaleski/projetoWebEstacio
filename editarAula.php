@@ -15,7 +15,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
 } 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update'])) {
     try {
-        // Recuperar dados do formulário
         $id = $_POST['id'];
         $curso = $_POST['curso'];
         $aula = $_POST['aula'];
@@ -33,7 +32,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update'])) {
             $status = "error";
             $errorMessage = "Preencha todos os campos obrigatórios!";
         } else {
-            // Consulta de atualização
             $query = $pdo->prepare("UPDATE Aulas 
                                     SET curso = :curso, aula = :aula, ensino = :ensino, professor = :professor, 
                                         diaSemana = :diaSemana, periodo = :periodo, horario = :horario, 

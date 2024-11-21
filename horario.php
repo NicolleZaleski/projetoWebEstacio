@@ -2,9 +2,8 @@
 include 'conexaoBanco.php';
 
 setlocale(LC_TIME, 'pt_BR.utf8', 'Portuguese_Brazil.1252');
-date_default_timezone_set('America/Sao_Paulo');
+date_default_timezone_set('America/Campo_Grande');
 
-// Obtém o dia da semana em português usando IntlDateFormatter
 $date = new DateTime();
 $formatter = new IntlDateFormatter(
     'pt_BR',
@@ -12,10 +11,9 @@ $formatter = new IntlDateFormatter(
     IntlDateFormatter::NONE,
     'America/Sao_Paulo',
     IntlDateFormatter::GREGORIAN,
-    'EEEE' // Formato para o dia da semana por extenso
+    'EEEE' 
 );
-$diaSemana = ucfirst($formatter->format($date)); // Capitaliza o primeiro caractere
-
+$diaSemana = ucfirst($formatter->format($date)); 
 $horaAtual = (int)$date->format('H');
 $periodo = '';
 
@@ -59,11 +57,10 @@ if ($horaAtual >= 6 && $horaAtual < 12) {
                         FROM Aulas 
                         WHERE diaSemana = ? AND periodo = ?";
                 $stmt = $conn->prepare($sql);
-                $stmt->bind_param("ss", $diaSemana, $periodo); // Dois parâmetros do tipo string
+                $stmt->bind_param("ss", $diaSemana, $periodo);
                 $stmt->execute();
                 $result = $stmt->get_result();
 
-                // Verifica se há resultados e exibe cada aula
                 if ($result->num_rows > 0) {
                     while($row = $result->fetch_assoc()) { 
                         echo "<div class='aulas'>";
@@ -80,7 +77,6 @@ if ($horaAtual >= 6 && $horaAtual < 12) {
                     echo "</div>";
                 }
 
-                // Fecha a conexão
                 $conn->close();
                 ?>
             </section>

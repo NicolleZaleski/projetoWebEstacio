@@ -119,15 +119,6 @@ $status = "";
         }
     ?>
 
-    <!-- <?php if (isset($errorMessage)) : ?>
-        <script>
-            console.error("Erro ao cadastrar aula: <?php echo $errorMessage; ?>");
-        </script>
-    <?php endif; ?> -->
-
-
-
-
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         const statusCadastro = "<?php echo $status; ?>";
